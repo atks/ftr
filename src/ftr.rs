@@ -1,5 +1,6 @@
 use std::env;
 use std::fs;
+use std::fmt;
 
 fn main() {
     println!("Hello, world!");
