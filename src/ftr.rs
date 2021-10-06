@@ -46,10 +46,8 @@ fn main() {
     println!("This struct `{}` won't print...", Structure(3));
     // FIXME ^ Comment out this line.
     
-
     // --snip--
     let args: Vec<String> = env::args().collect();
-
     let query = &args[1];
     let filename = &args[2];
 
