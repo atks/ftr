@@ -7,3 +7,5 @@ edition = "2018"
 
 [dependencies]
 ferris-says = "0.2"
+rust-htslib = "*"
+clap = "2.33.3"

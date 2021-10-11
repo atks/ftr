@@ -1,20 +1,35 @@
-extern crate ferris_says;
+extern crate clap;
 
-use ferris_says::say;
-use std::io::{ stdout, BufWriter };
-use std::env;
-use std::fs;
-use std::fmt;
+use clap::{Arg, App, SubCommand};
+
+//use std::io::{ stdout, BufWriter };
+//use std::env;
+//use std::fs;
+//use std::fmt;
 
 fn main() {
+    let matches = App::new("myapp")
+                          .version("1.0")
+                          .author("Kevin K. <kbknapp@gmail.com>")
+                          .about("Does awesome things")
+                          .args_from_usage(
+                              "-c, --config=[FILE] 'Sets a custom config file'
+                              <INPUT>              'Sets the input file to use'
+                              -v...                'Sets the level of verbosity'")
+                          .subcommand(SubCommand::with_name("test")
+                                      .about("controls testing features")
+                                      .version("1.3")
+                                      .author("Someone E. <someone_else@other.com>")
+                                      .arg_from_usage("-d, --debug 'Print debug information'"))
+                          .get_matches();
     
     
-    let out = b"Hello fellow Rustaceans!";
-    let width = 24;
-
-    let mut writer = BufWriter::new(stdout());
-    say(out, width, &mut writer).unwrap();
-    
+//    let out = b"Hello fellow Rustaceans!";
+//    let width = 24;
+//
+//    let mut writer = BufWriter::new(stdout());
+//    say(out, width, &mut writer).unwrap();
+//    
 //    println!("Hello, world!");
     
        // In general, the `{}` will be automatically replaced with any
