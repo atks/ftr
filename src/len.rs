@@ -1,9 +1,14 @@
+extern crate needletail;
+use needletail::{parse_fastx_file, Sequence};
+
 pub fn main(args: Vec<String>) {
-
-    for (i, x) in args.iter().enumerate() {
-        println!("argument {} : {}", i, x);
-    }
     
-
-    println!("Running len");
+    let filename = &args[2];
+    let mut reader = parse_fastx_file(&filename).expect("invalid record");
+    
+    while let Some(record) = reader.next() {
+    
+        let seqrec = record.expect("invalid record");
+        println!("{}", seqrec.num_bases());
+    }
 }

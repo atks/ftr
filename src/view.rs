@@ -1,10 +1,6 @@
 extern crate needletail;
 use needletail::{parse_fastx_file, Sequence, FastxReader};
 
-
-
-
-
 pub fn main(args: Vec<String>) {
     
     let filename = &args[2];
