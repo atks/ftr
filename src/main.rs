@@ -1,10 +1,11 @@
+mod ansi;
 mod len;
 
-use len::len;
+//use len::len;
+//use ansi::ansi;
 use std::env;
 
-pub fn main() {
-
+fn main() {
     let args: Vec<String> = env::args().collect();
     println!("{:?}", args);
 
@@ -12,8 +13,9 @@ pub fn main() {
     let subcommand = &*args[1];
 
     match subcommand {
-        "len" => len(args),
-        "view"  => println!("Run view\n"),
-        _       => println!("Print out list of commands"),
+        "len" => len::main(args),
+        "view" => println!("Run view\n"),
+        "ansi" => ansi::main(args),
+        _ => println!("Print out list of commands"),
     }
 }
