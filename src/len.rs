@@ -1,6 +1,9 @@
 extern crate needletail;
 use needletail::{parse_fastx_file, Sequence};
 
+//print out length of sequences
+//ftr len a.fastq.gz
+
 pub fn main(args: Vec<String>) {
     let filename = &args[2];
     let mut reader = parse_fastx_file(&filename).expect("invalid record");

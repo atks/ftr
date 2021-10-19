@@ -1,6 +1,7 @@
 mod ansi;
 mod len;
 mod view;
+mod clap1;
 
 use std::env;
 
@@ -12,6 +13,7 @@ fn main() {
         "len" => len::main(args),
         "view" => view::main(args),
         "ansi" => ansi::main(args),
+        "clap" => clap1::main(args),
         _ => println!("Print out list of commands"),
     }
 }
