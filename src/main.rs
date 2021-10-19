@@ -1,5 +1,6 @@
 mod ansi;
 mod len;
+mod view;
 
 //use len::len;
 //use ansi::ansi;
@@ -14,7 +15,7 @@ fn main() {
 
     match subcommand {
         "len" => len::main(args),
-        "view" => println!("Run view\n"),
+        "view" => view::main(args),
         "ansi" => ansi::main(args),
         _ => println!("Print out list of commands"),
     }
