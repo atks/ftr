@@ -1,44 +1,36 @@
 extern crate clap;
 use clap::{Arg, App, SubCommand};
 
-mod ansi;
+//mod ansi;
 mod len;
-mod view;
-
-use std::env;
-
-arg_enum! {
-    #[derive(Debug)]
-    enum Algorithm {
-        SHA1,
-        SHA256,
-        Argon2
-    }
-}
+//mod view;
 
 fn main() {
 
-    let matches = App::new()
-                 .subcommand(SubCommand::with_name("analyze")
-                    .about("Analyses the data from file")
-                    .arg(Arg::with_name("input-file")
-                    .short("i")
-                    .default_value("default.csv")
-                    .value_name("FILE")))
-                 .subcommand(SubCommand::with_name("verify")
-                    .about("Verifies the data")
-                    .arg(Arg::with_name("algorithm")
-                    .short("a")
-                    .possible_values(&Algorithm::variants())
-                    .require(true)
-                    .value_name("ALGORITHM")))
-                 .get_matches();
+    let matches = App::new("ft")
+                          .version("0.1.0")
+                          .author("cavs")
+                          .about("Tools related to dealing with sequences stored in FASTA/Q")
+                          .subcommand(SubCommand::with_name("len")
+                                      .about("gets length of sequences")
+                                      .version("0.1.0")
+                                      .author("adrian")
+                                      .arg(Arg::with_name("debug")
+                                          .short("d")
+                                          .help("print debug information verbosely")))
+                          .get_matches();
 
-
-    match matches.subcommand() {
-        "len" => len::main(args),
-        "view" => view::main(args),
-        "ansi" => ansi::main(args),
-        _ => println!("Print out list of commands"),
+    // You can check for the existence of subcommands, and if found use their
+    // matches just as you would the top level app
+    if let Some(ref matches) = matches.subcommand_matches("len") {
+        // "$ myapp test" was run
+        println!("calculate length...");
     }
+
+//    match matches.subcommand() {
+//        "len" => println!("Running len"),
+//        "view" => println!("Running view"),
+//        "ansi" => println!("Running ansi"),
+//        _ => println!("Print out list of commands"),
+//    }
 }

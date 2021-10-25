@@ -1,5 +1,5 @@
 extern crate needletail;
-use needletail::{parse_fastx_file, FastxReader, Sequence};
+use needletail::{parse_fastx_file};
 
 //ftr view a.fastq.gz
 //ftr view a.fastq.gz -o b.fastq.gz
