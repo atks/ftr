@@ -22,7 +22,7 @@ fn main() {
 
     // You can check for the existence of subcommands, and if found use their
     // matches just as you would the top level app
-    if let Some(ref matches) = matches.subcommand_matches("len") {
+    if let Some(ref _sub) = matches.subcommand_matches("len") {
         // "$ myapp test" was run
         println!("calculate length...");
     }
