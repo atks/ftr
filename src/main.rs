@@ -20,19 +20,14 @@ fn main() {
                                           .help("print debug information verbosely")))
                           .get_matches();
 
-    // You can check for the existence of subcommands, and if found use their
-    // matches just as you would the top level app
     let mut subcmd = "";
-    if let Some(ref _sub) = matches.subcommand_matches("len") {
-        // "$ myapp test" was run
-        subcmd = "sd";
-        println!("calculate length...");
-    } 
-
-    match subcmd {
-        "len" => println!("Running len"),
-        "view" => println!("Running view"),
-        "ansi" => println!("Running ansi"),
-        _ => println!("Print out list of commands"),
+    if let ("len", Some(rm)) = matches.subcommand() {
+        len::len(rm);
     }
+}
+
+fn print_commands() {
+
+    println!("len - compute length");
+    println!("gb2fasta - convert genbank to fasta");
 }
