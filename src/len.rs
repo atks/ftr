@@ -1,12 +1,18 @@
+extern crate clap;
+use clap::{App, SubCommand, ArgMatches};
 extern crate needletail;
 use needletail::{parse_fastx_file};
-extern crate clap;
-use clap::{ArgMatches};
 
 
-//print out length of sequences
-//ftr len a.fastq.gz
-pub fn len(args: &ArgMatches) {
+//make sub command interface
+pub fn make_subcmd() -> App<'static, 'static> {
+    SubCommand::with_name("len")
+}
+
+pub fn run(args: &ArgMatches) {
+
+
+
 
     println!("running len")
     // let filename = &args[2];
