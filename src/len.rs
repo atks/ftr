@@ -5,13 +5,11 @@ use needletail::{parse_fastx_file};
 
 
 //make sub command interface
-pub fn make_subcmd() -> App<'static, 'static> {
+pub fn make_subcmd() -> App<'static> {
     SubCommand::with_name("len")
 }
 
 pub fn run(args: &ArgMatches) {
-
-
 
 
     println!("running len")

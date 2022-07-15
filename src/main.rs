@@ -12,8 +12,8 @@ fn main() {
                           .subcommand(len::make_subcmd())
                           .get_matches();
 
-    if let ("len", Some(rm)) = matches.subcommand() {
-        len::run(rm);
+    if let Some(("len", am)) = matches.subcommand() {
+        len::run(am);
     }
     else {
         println!("len - compute length");
