@@ -3,14 +3,13 @@ use clap::{App, SubCommand, ArgMatches};
 extern crate needletail;
 use needletail::{parse_fastx_file};
 
-
 //make sub command interface
 pub fn make_subcmd() -> App<'static> {
     SubCommand::with_name("len")
 }
 
+//core program
 pub fn run(args: &ArgMatches) {
-
 
     println!("running len")
     // let filename = &args[2];
